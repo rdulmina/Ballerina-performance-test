@@ -16,7 +16,8 @@ json payload = {
             "json",
             "json",
             "json",
-            "json"]
+            "json"
+        ]
     }
 };
 
@@ -24,5 +25,7 @@ json payload = {
 function testFunction() {
     http:Client httpClinet = checkpanic new ("http://localhost:9090");
     http:Response response = checkpanic httpClinet->post("/DMPerfTest", payload);
-    test:assertEquals(response.getXmlPayload(), xml `<payload><symbol>json</symbol><symbol>json</symbol><symbol>json</symbol><symbol>son</symbol><symbol>json</symbol><symbol>json</symbol><symbol>json</symbol><symbol>json</symbol><symbol>json</symbol><symbol>json</symbol><symbol>json</symbol></payload>`);
+    string expected = string `<payload><symbol>json</symbol><symbol>json</symbol><symbol>json</symbol><symbol>son</symbol><symbol>json</symbol><symbol>json</symbol><symbol>json</symbol><symbol>json</symbol><symbol>json</symbol><symbol>json</symbol><symbol>json</symbol></payload>`;
+    string actual = (checkpanic response.getXmlPayload()).toString();
+    test:assertEquals(actual, expected);
 }

@@ -1,7 +1,7 @@
 import ballerina/http;
 import ballerina/xmldata;
 
-type Order record {|
+public type Order record {|
     string symbol;
     string buyerID;
     float price;
@@ -16,7 +16,7 @@ type Order record {|
     // <order><symbol>SUN</symbol><buyerID>indika</buyerID><price>14.56</price><volume>500</volume></order>
     // </m:buyStocks></soapenv:Body></soapenv:Envelope>
 isolated service /DMPerfTest on new http:Listener(9090) {
-    isolated resource function post .(@http:Payload xml payload) returns map<Order>|xmldata:Error {
+    isolated resource function post .(xml payload) returns map<Order>|xmldata:Error {
         xml<'xml:Element> orders = payload/**/<'order>;
         return xmldata:fromXml(orders);
     }

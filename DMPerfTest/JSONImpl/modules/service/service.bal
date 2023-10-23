@@ -1,13 +1,6 @@
 import ballerina/http;
 import ballerina/xmldata;
 
-type Order record {|
-    string symbol;
-    string buyerID;
-    float price;
-    int volume;
-|};
-
 // This service will accept following JSON payload and convrt to XML
 // {
 //     "payload": {

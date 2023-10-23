@@ -1,4 +1,4 @@
-import XMLImpl.'service as _;
+import XMLImpl.'service as balService;
 
 import ballerina/http;
 import ballerina/test;
@@ -12,5 +12,7 @@ function testFunction() {
     <order><symbol>N</symbol><buyerID>n</buyerID><price>1.0</price><volume>1</volume></order>
     <order><symbol>SUN</symbol><buyerID>indika</buyerID><price>14.56</price><volume>500</volume></order>
     </m:buyStocks></soapenv:Body></soapenv:Envelope>`);
-    test:assertEquals(response.getJsonPayload(), <json>{'order: [{"symbol":"N", "buyerID":"n", "price":1.0, "volume":1}, {"symbol":"SUN", "buyerID":"indika", "price":14.56, "volume":500}]});
+    map<balService:Order[]> expected = {'order: [{"symbol":"N", "buyerID":"n", "price":1.0, "volume":1}, {"symbol":"SUN", "buyerID":"indika", "price":14.56, "volume":500}]};
+    map<balService:Order[]> actual = checkpanic (checkpanic response.getJsonPayload()).cloneWithType();
+    test:assertEquals(actual, expected);
 }
