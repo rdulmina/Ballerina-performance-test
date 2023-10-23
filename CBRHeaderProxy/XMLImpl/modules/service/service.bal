@@ -1,6 +1,6 @@
 import ballerina/http;
 
-configurable string httpClinetUrl = ?;
+configurable string httpClientUrl = ?;
 
 xmlns "http://schemas.xmlsoap.org/soap/envelope/" as soapenv;
 
@@ -15,11 +15,11 @@ xmlns "http://someuri" as t;
 service /CBRHeaderProxy on new http:Listener(9090) {
     final http:Client httpClient;
     function init() returns error? {
-        self.httpClient = check new (httpClinetUrl);
+        self.httpClient = check new (httpClientUrl);
     }
     resource function post .(xml payload) returns http:Response|http:Error {
         if !re `xadmin;server1;community#1.0##`.isFullMatch((payload/<soapenv:Header>/<t:routing>).data()) {
-            return error("Only application/json is supported");
+            return error("Invalid routing header");
         }
 
         return check self.httpClient->/;
