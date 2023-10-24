@@ -2,7 +2,6 @@ import XMLImpl.'service as _;
 
 import ballerina/http;
 import ballerina/io;
-import ballerina/mime;
 import ballerina/test;
 
 xml payload = xml `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
@@ -15,7 +14,7 @@ xml payload = xml `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/s
 @test:Config {}
 function testFunction() {
     http:Client httpClinet = checkpanic new ("http://localhost:9090");
-    http:Response response = checkpanic httpClinet->post("/CBRHeaderProxy", payload, headers = {accept: mime:APPLICATION_XML});
+    http:Response response = checkpanic httpClinet->post("/CBRHeaderProxy", payload, headers = {foo: "perfTests"});
     test:assertEquals(response.statusCode, 200);
     io:println(response.getJsonPayload());
 }

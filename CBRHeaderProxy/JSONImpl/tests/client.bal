@@ -2,7 +2,6 @@ import JSONImpl.'service as _;
 
 import ballerina/http;
 import ballerina/io;
-import ballerina/mime;
 import ballerina/test;
 
 json payload = {
@@ -26,7 +25,7 @@ json payload = {
 @test:Config {}
 function testFunction() {
     http:Client httpClinet = checkpanic new ("http://localhost:9090");
-    http:Response response = checkpanic httpClinet->post("/CBRHeaderProxy", payload, headers = {accept: mime:APPLICATION_JSON});
+    http:Response response = checkpanic httpClinet->post("/CBRHeaderProxy", payload, headers = {foo: "perfTests"});
     test:assertEquals(response.statusCode, 200);
     io:println(response.getJsonPayload());
 }
