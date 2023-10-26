@@ -1,0 +1,2 @@
+[JSONImpl.service]
+httpClientUrl = "https://catfact.ninja/fact"
