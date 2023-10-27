@@ -3,7 +3,7 @@ import ballerina/io;
 
 configurable string httpClientUrl = ?;
 
-isolated service / on new http:Listener(9090) {
+isolated service /PassThroughJson on new http:Listener(9090) {
     final http:Client httpClient;
 
     function init() returns error? {

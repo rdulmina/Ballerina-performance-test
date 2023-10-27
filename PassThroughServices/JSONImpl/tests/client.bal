@@ -24,8 +24,8 @@ json payload = {
 
 @test:Config {}
 function testFunction() {
-    http:Client httpClinet = checkpanic new ("http://localhost:9090");
-    http:Response response = checkpanic httpClinet->post("/PassThroughJson", payload);
+    http:Client httpClinet = checkpanic new ("http://localhost:9090/PassThroughJson");
+    http:Response response = checkpanic httpClinet->post("/a/b/c", payload);
     test:assertEquals(response.statusCode, 200);
     io:println(response.getJsonPayload());
 }

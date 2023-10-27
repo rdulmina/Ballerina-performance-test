@@ -11,8 +11,8 @@ xml payload = xml `<m:buyStocks xmlns:m="http://services.samples/xsd">
 
 @test:Config {}
 function testFunction() {
-    http:Client httpClinet = checkpanic new ("http://localhost:9090");
-    http:Response response = checkpanic httpClinet->post("/PassThroughXML", payload);
+    http:Client httpClinet = checkpanic new ("http://localhost:9090/PassThroughXML");
+    http:Response response = checkpanic httpClinet->post("/a/b", payload);
     test:assertEquals(response.statusCode, 200);
     io:println(response.getJsonPayload());
 }
