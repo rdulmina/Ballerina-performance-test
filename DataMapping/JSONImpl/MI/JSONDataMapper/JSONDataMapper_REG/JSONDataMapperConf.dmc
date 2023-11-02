@@ -1,0 +1,27 @@
+map_S_root_S_root = function(){ 
+var outputroot={};
+var MULTIPLY_6_0 = '';
+
+var count_i_order_818c9607_b4c9_43e3_b0fd_dd001e1ba57f = 0;
+outputroot =  {};
+outputroot.buyStocks =  {};
+outputroot.buyStocks.order =  [];
+
+for(i_order_818c9607_b4c9_43e3_b0fd_dd001e1ba57f in inputroot.buyStocks.order){
+MULTIPLY_6_0 = 1*inputroot.buyStocks.order[i_order_818c9607_b4c9_43e3_b0fd_dd001e1ba57f].price*inputroot.buyStocks.order[i_order_818c9607_b4c9_43e3_b0fd_dd001e1ba57f].volume;
+outputroot.buyStocks.order[count_i_order_818c9607_b4c9_43e3_b0fd_dd001e1ba57f] =  {};
+outputroot.buyStocks.order[count_i_order_818c9607_b4c9_43e3_b0fd_dd001e1ba57f].symbol = inputroot.buyStocks.order[i_order_818c9607_b4c9_43e3_b0fd_dd001e1ba57f].symbol;
+outputroot.buyStocks.order[count_i_order_818c9607_b4c9_43e3_b0fd_dd001e1ba57f].buyerID = inputroot.buyStocks.order[i_order_818c9607_b4c9_43e3_b0fd_dd001e1ba57f].buyerID;
+outputroot.buyStocks.order[count_i_order_818c9607_b4c9_43e3_b0fd_dd001e1ba57f].totalPrice = Number(MULTIPLY_6_0);
+
+count_i_order_818c9607_b4c9_43e3_b0fd_dd001e1ba57f++;
+}
+return outputroot;
+};
+
+
+
+
+
+
+

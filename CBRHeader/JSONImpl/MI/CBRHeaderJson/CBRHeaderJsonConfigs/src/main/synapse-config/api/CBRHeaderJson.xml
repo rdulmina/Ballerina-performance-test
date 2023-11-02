@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/CBRHeaderJSON" name="CBRHeaderJSON" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <!-- Check if the 'foo' header is 'bar' -->
+            <!-- Header matches, forward the request to the endpoint -->
+            <filter regex="bar" source="$trp:foo">
+                <then>
+                    <call>
+                        <endpoint key="CatInfoEndPoint"/>
+                    </call>
+                </then>
+                <else>
+                    <payloadFactory media-type="json">
+                        <format>{"error": "Cannot find symbol"}</format>
+                        <args/>
+                    </payloadFactory>
+                </else>
+            </filter>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

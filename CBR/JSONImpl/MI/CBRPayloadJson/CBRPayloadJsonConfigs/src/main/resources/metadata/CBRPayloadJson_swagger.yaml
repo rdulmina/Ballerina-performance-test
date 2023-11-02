@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: CBRPayloadJSON
+  description: API Definition of CBRPayloadJson
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/CBRPayloadJSON
+paths:
+  /:
+    post:
+      responses:
+        default:
+          description: Default response

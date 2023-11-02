@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: JSONToXML
+  description: API Definition of JSONToXML
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/JSONToXML
+paths:
+  /:
+    post:
+      responses:
+        default:
+          description: Default response

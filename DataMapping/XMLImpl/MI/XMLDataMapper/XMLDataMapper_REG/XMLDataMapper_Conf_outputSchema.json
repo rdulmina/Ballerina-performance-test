@@ -1,0 +1,35 @@
+{
+  "$schema" : "http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#",
+  "outputType" : "XML",
+  "id" : "http://wso2jsonschema.org",
+  "title" : "m:buyStocks",
+  "type" : "object",
+  "properties" : {
+    "order" : {
+      "id" : "http://wso2jsonschema.org/order",
+      "type" : "array",
+      "items" : [ {
+        "id" : "http://wso2jsonschema.org/order/0",
+        "type" : "object",
+        "properties" : {
+          "symbol" : {
+            "id" : "http://wso2jsonschema.org/order/0/symbol",
+            "type" : "string"
+          },
+          "buyerID" : {
+            "id" : "http://wso2jsonschema.org/order/0/buyerID",
+            "type" : "string"
+          },
+          "totalPrice" : {
+            "id" : "http://wso2jsonschema.org/order/0/totalPrice",
+            "type" : "number"
+          }
+        }
+      } ]
+    }
+  },
+  "namespaces" : [ {
+    "prefix" : "m",
+    "url" : "http://services.samples/xsd"
+  } ]
+}

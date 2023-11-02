@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/XMLDataMapper" name="XMLDataMapper" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <datamapper config="gov:datamapper/XMLDataMapper_Conf.dmc" inputSchema="gov:datamapper/XMLDataMapper_Conf_inputSchema.json" inputType="XML" outputSchema="gov:datamapper/XMLDataMapper_Conf_outputSchema.json" outputType="XML" xsltStyleSheet="gov:datamapper/XMLDataMapper_Conf_xsltStyleSheet.xml"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

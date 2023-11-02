@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:complexType name="OrderTargetType">
+    	<xs:sequence>
+    		<xs:element name="symbol" type="xs:string"></xs:element>
+    		<xs:element name="buyerID" type="xs:string"></xs:element>
+    		<xs:element name="totalPrice" type="xs:float"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="buyStocks" type="BuyStocksTargetType"></xs:element>
+
+    
+    <xs:complexType name="BuyStocksTargetType">
+    	<xs:sequence>
+    		<xs:element name="order" type="OrderTargetType" maxOccurs="unbounded" minOccurs="0"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+</xs:schema>
