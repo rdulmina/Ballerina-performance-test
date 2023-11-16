@@ -1,5 +1,4 @@
 import ballerina/http;
-import ballerina/io;
 
 configurable string httpClientUrl = ?;
 
@@ -15,10 +14,9 @@ isolated service / on new http:Listener(9090) {
     }
 
     isolated resource function post cbr(xml orders) returns http:Response|error {
-        io:println(orders);
-        if re `IBM`.isFullMatch((((orders/<m:'order>)[1])/<symbol>).data()) {
-            return check self.clientOne->/;
+        if re `SUN`.isFullMatch((((orders/**/<'order>)[1])/<symbol>).data()) {
+            return self.clientOne->/cbr.post(orders);
         }
-        return check self.clientTwo->/;
+        return self.clientTwo->/cbr.post(orders);
     }
 }

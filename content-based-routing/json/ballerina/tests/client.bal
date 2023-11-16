@@ -4,19 +4,12 @@ import ballerina/mime;
 import ballerina/test;
 
 json payload = {
-    "payload": {
-        "symbol": [
-            "json",
-            "json",
-            "json",
-            "json",
-            "json",
-            "json",
-            "json",
-            "json",
-            "json",
-            "json",
-            "json"
+    "buyStocks": {
+        "order":
+    [
+            {"symbol": "N", "buyerID": "n", "price": 1.0, "volume": 1},
+            {"symbol": "SUN", "buyerID": "indika", "price": 14.56, "volume": 500},
+            {"symbol": "MSFT", "buyerID": "doe", "price": 23.56, "volume": 8030}
         ]
     }
 };

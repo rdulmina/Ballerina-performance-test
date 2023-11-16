@@ -1,9 +1,21 @@
 import ballerina/http;
+import ballerina/io;
 
 configurable string httpClientUrl = ?;
 
-type Payload record {|
-    record {|string[] symbol;|} payload;
+type BuyStocks record {|
+    SourceType[] 'order;
+|};
+
+type StockDetails record {|
+    BuyStocks buyStocks;
+|};
+
+type SourceType record {|
+    string symbol;
+    string buyerID;
+    float price;
+    int volume;
 |};
 
 isolated service / on new http:Listener(9090) {
@@ -14,11 +26,11 @@ isolated service / on new http:Listener(9090) {
         self.clientOne = check new (httpClientUrl);
         self.clientTwo = check new (httpClientUrl);
     }
-    isolated resource function post cbr(Payload payload) returns http:Response|http:Error {
-        if re `IBM`.isFullMatch(payload.payload.symbol[1]) {
-            return check self.clientOne->/;
+    isolated resource function post cbr(StockDetails payload) returns http:Response|http:Error {
+        io:println(payload.buyStocks.'order[1].symbol);
+        if re `SUN`.isFullMatch(payload.buyStocks.'order[1].symbol) {
+            return check self.clientOne->/.post(payload);
         }
-
-        return self.clientTwo->/;
+        return self.clientTwo->/.post(payload);
     }
 }
