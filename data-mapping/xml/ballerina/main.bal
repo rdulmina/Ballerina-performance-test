@@ -1,7 +1,5 @@
 import ballerina/http;
 
-// import ballerina/io;
-
 configurable string httpClientUrl = ?;
 
 //  Source XML

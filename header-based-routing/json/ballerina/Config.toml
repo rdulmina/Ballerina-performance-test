@@ -1,1 +1,1 @@
-httpClientUrl = "https://catfact.ninja/fact"
+httpClientUrl = "localhost:8688"
