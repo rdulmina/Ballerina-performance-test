@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<endpoint name="CatInfoEndPoint" xmlns="http://ws.apache.org/ns/synapse">
+<endpoint name="CatInfoEndPoint2" xmlns="http://ws.apache.org/ns/synapse">
     <http method="post" uri-template="http://localhost:8688">
         <suspendOnFailure>
             <initialDuration>-1</initialDuration>
