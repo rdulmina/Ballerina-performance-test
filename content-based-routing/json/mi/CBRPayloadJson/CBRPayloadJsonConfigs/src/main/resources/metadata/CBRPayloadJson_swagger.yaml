@@ -4,7 +4,7 @@ info:
   description: API Definition of CBRPayloadJson
   version: 1.0.0
 servers:
-- url: http://localhost:8290/CBRPayloadJSON
+- url: http://localhost:8290/cbr
 paths:
   /:
     post:

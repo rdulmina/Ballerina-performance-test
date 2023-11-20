@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<api context="/CBRHeaderXML" name="CBRHeaderXML" xmlns="http://ws.apache.org/ns/synapse">
+<api context="/hbr" name="CBRHeaderXML" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST">
         <inSequence>
             <!-- Check if the 'foo' header is 'bar' -->
             <!-- Header matches, forward the request to the endpoint -->
-            <filter regex="bar" source="$trp:foo">
+            <filter regex="2.0" source="$trp:version">
                 <then>
                     <call>
-                        <endpoint key="CatInfoEndpoint"/>
+                        <endpoint key="CatInfoEndpoint2"/>
                     </call>
                 </then>
                 <else>
-                    <payloadFactory description="Create response payload for unsupported operation" media-type="xml">
-                        <format>
-                            <Message xmlns="">Cannot find symbol</Message>
-                        </format>
-                        <args/>
-                    </payloadFactory>
+                    <call>
+                        <endpoint key="CatInfoEndpoint"/>
+                    </call>
                 </else>
             </filter>
             <respond/>

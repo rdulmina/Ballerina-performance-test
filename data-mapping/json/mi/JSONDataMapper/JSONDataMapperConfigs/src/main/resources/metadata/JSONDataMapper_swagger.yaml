@@ -4,7 +4,7 @@ info:
   description: API Definition of JSONDataMapper
   version: 1.0.0
 servers:
-- url: http://localhost:8290/JSONDataMapper
+- url: http://localhost:8290/jsonmapper
 paths:
   /:
     post:
