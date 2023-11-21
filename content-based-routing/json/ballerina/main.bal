@@ -1,5 +1,4 @@
 import ballerina/http;
-import ballerina/io;
 
 configurable string httpClientUrl = ?;
 
@@ -27,7 +26,6 @@ isolated service / on new http:Listener(9090) {
         self.clientTwo = check new (httpClientUrl);
     }
     isolated resource function post cbr(StockDetails payload) returns http:Response|http:Error {
-        io:println(payload.buyStocks.'order[1].symbol);
         if re `SUN`.isFullMatch(payload.buyStocks.'order[1].symbol) {
             return check self.clientOne->/.post(payload);
         }
