@@ -19,6 +19,7 @@
     <com.example.metadata_._CBRPayloadJson_metadata>capp/EnterpriseServiceBus</com.example.metadata_._CBRPayloadJson_metadata>
     <com.example.api_._HealthcareAPI>capp/EnterpriseServiceBus</com.example.api_._HealthcareAPI>
     <com.example.api_._CBRPayloadJson>capp/EnterpriseServiceBus</com.example.api_._CBRPayloadJson>
+    <com.example.endpoint_._CatInfoEndPoint>capp/EnterpriseServiceBus</com.example.endpoint_._CatInfoEndPoint>
     <com.example.endpoint_._PineValleyEndpoint>capp/EnterpriseServiceBus</com.example.endpoint_._PineValleyEndpoint>
     <com.example.metadata_._CBRPayloadJson_swagger>capp/EnterpriseServiceBus</com.example.metadata_._CBRPayloadJson_swagger>
     <com.example.metadata_._HealthcareAPI_swagger>capp/EnterpriseServiceBus</com.example.metadata_._HealthcareAPI_swagger>
@@ -32,22 +33,10 @@
       <type>yaml</type>
     </dependency>
     <dependency>
-      <groupId>com.example.endpoint</groupId>
-      <artifactId>GrandOakEndpoint</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
       <groupId>com.example.metadata</groupId>
       <artifactId>CBRPayloadJson_metadata</artifactId>
       <version>1.0.0</version>
       <type>yaml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.api</groupId>
-      <artifactId>HealthcareAPI</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
     </dependency>
     <dependency>
       <groupId>com.example.api</groupId>
@@ -57,7 +46,7 @@
     </dependency>
     <dependency>
       <groupId>com.example.endpoint</groupId>
-      <artifactId>PineValleyEndpoint</artifactId>
+      <artifactId>CatInfoEndPoint</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
