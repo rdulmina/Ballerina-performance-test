@@ -4,7 +4,7 @@ info:
   description: API Definition of CBRHeaderXML
   version: 1.0.0
 servers:
-- url: http://localhost:8290/CBRHeaderXML
+- url: http://localhost:8290/hbr
 paths:
   /:
     post:

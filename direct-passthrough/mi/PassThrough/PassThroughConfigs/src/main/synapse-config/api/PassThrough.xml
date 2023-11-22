@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/passthrough" name="PassThrough" xmlns="http://ws.apache.org/ns/synapse">
-    <resource methods="HEAD DELETE POST GET OPTIONS PUT PATCH" uri-template="/*">
-        <inSequence/>
+    <resource methods="POST">
+        <inSequence>
+            <call>
+                <endpoint key="CatInfoEndPoint"/>
+            </call>
+            <respond/>
+        </inSequence>
         <outSequence/>
         <faultSequence/>
     </resource>

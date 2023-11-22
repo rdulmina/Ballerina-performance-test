@@ -14,8 +14,66 @@
   <name>CBRHeaderJsonCompositeExporter</name>
   <description>CBRHeaderJsonCompositeExporter</description>
   <properties>
+    <com.example.metadata_._CBRHeaderJson_metadata>capp/EnterpriseServiceBus</com.example.metadata_._CBRHeaderJson_metadata>
+    <com.example.endpoint_._CatInfoEndPoint2>capp/EnterpriseServiceBus</com.example.endpoint_._CatInfoEndPoint2>
+    <com.example.api_._CBRHeaderJson>capp/EnterpriseServiceBus</com.example.api_._CBRHeaderJson>
+    <com.example.api_._CBRPayloadXML>capp/EnterpriseServiceBus</com.example.api_._CBRPayloadXML>
+    <com.example.metadata_._CBRPayloadXML_metadata>capp/EnterpriseServiceBus</com.example.metadata_._CBRPayloadXML_metadata>
+    <com.example.endpoint_._CatInfoEndPoint>capp/EnterpriseServiceBus</com.example.endpoint_._CatInfoEndPoint>
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,synapse/metadata=yaml,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
+    <com.example.metadata_._CBRHeaderJson_swagger>capp/EnterpriseServiceBus</com.example.metadata_._CBRHeaderJson_swagger>
+    <com.example.metadata_._CBRPayloadXML_swagger>capp/EnterpriseServiceBus</com.example.metadata_._CBRPayloadXML_swagger>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>com.example.metadata</groupId>
+      <artifactId>CBRHeaderJson_metadata</artifactId>
+      <version>1.0.0</version>
+      <type>yaml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.api</groupId>
+      <artifactId>CBRHeaderJson</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.metadata</groupId>
+      <artifactId>CBRHeaderJson_swagger</artifactId>
+      <version>1.0.0</version>
+      <type>yaml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.metadata</groupId>
+      <artifactId>CBRPayloadXML_metadata</artifactId>
+      <version>1.0.0</version>
+      <type>yaml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.metadata</groupId>
+      <artifactId>CBRPayloadXML_swagger</artifactId>
+      <version>1.0.0</version>
+      <type>yaml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.api</groupId>
+      <artifactId>CBRPayloadXML</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>CatInfoEndPoint</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>CatInfoEndPoint2</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+  </dependencies>
   <repositories>
     <repository>
       <releases>

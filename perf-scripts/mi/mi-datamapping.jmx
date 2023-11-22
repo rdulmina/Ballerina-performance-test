@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.2">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="PassthroughTest" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="DataMappingTest" enabled="true">
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
@@ -31,7 +31,7 @@
           <collectionProp name="HeaderManager.headers">
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">Content-Type</stringProp>
-              <stringProp name="Header.value">application/xml</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -51,9 +51,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&#xd;
-&lt;soapenv:Header&gt;&lt;routing xmlns=&quot;http://someuri&quot;&gt;xadmin;server1;community#1.0##&lt;/routing&gt;&lt;/soapenv:Header&gt;&#xd;
-&lt;soapenv:Body&gt;&lt;m:buyStocks xmlns:m=&quot;http://services.samples/xsd&quot;&gt;&#xd;
+                <stringProp name="Argument.value">&lt;m:buyStocks xmlns:m=&quot;http://services.samples/xsd&quot;&gt;&#xd;
 &lt;order&gt;&lt;symbol&gt;N&lt;/symbol&gt;&lt;buyerID&gt;n&lt;/buyerID&gt;&lt;price&gt;1.0&lt;/price&gt;&lt;volume&gt;1&lt;/volume&gt;&lt;/order&gt;&#xd;
 &lt;order&gt;&lt;symbol&gt;SUN&lt;/symbol&gt;&lt;buyerID&gt;indika&lt;/buyerID&gt;&lt;price&gt;14.56&lt;/price&gt;&lt;volume&gt;500&lt;/volume&gt;&lt;/order&gt;&#xd;
 &lt;order&gt;&lt;symbol&gt;MSFT&lt;/symbol&gt;&lt;buyerID&gt;doe&lt;/buyerID&gt;&lt;price&gt;23.56&lt;/price&gt;&lt;volume&gt;8030&lt;/volume&gt;&lt;/order&gt;&#xd;
@@ -153,7 +151,7 @@
 &lt;order&gt;&lt;symbol&gt;N&lt;/symbol&gt;&lt;buyerID&gt;n&lt;/buyerID&gt;&lt;price&gt;1.0&lt;/price&gt;&lt;volume&gt;1&lt;/volume&gt;&lt;/order&gt;&#xd;
 &lt;order&gt;&lt;symbol&gt;SUN&lt;/symbol&gt;&lt;buyerID&gt;indika&lt;/buyerID&gt;&lt;price&gt;14.56&lt;/price&gt;&lt;volume&gt;500&lt;/volume&gt;&lt;/order&gt;&#xd;
 &lt;order&gt;&lt;symbol&gt;MSFT&lt;/symbol&gt;&lt;buyerID&gt;doe&lt;/buyerID&gt;&lt;price&gt;23.56&lt;/price&gt;&lt;volume&gt;8030&lt;/volume&gt;&lt;/order&gt;&#xd;
-&lt;/m:buyStocks&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;&#xd;
+&lt;/m:buyStocks&gt;&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -179,7 +177,7 @@
           <stringProp name="HTTPSampler.response_timeout">120000</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - Ballerina - XML" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - Ballerina - XML" enabled="false">
           <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
             <collectionProp name="HTTPFileArgs.files">
               <elementProp name="${__P(payload)}" elementType="HTTPFileArg">
@@ -194,9 +192,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&#xd;
-&lt;soapenv:Header&gt;&lt;routing xmlns=&quot;http://someuri&quot;&gt;xadmin;server1;community#1.0##&lt;/routing&gt;&lt;/soapenv:Header&gt;&#xd;
-&lt;soapenv:Body&gt;&lt;m:buyStocks xmlns:m=&quot;http://services.samples/xsd&quot;&gt;&#xd;
+                <stringProp name="Argument.value">&lt;m:buyStocks xmlns:m=&quot;http://services.samples/xsd&quot;&gt;&#xd;
 &lt;order&gt;&lt;symbol&gt;N&lt;/symbol&gt;&lt;buyerID&gt;n&lt;/buyerID&gt;&lt;price&gt;1.0&lt;/price&gt;&lt;volume&gt;1&lt;/volume&gt;&lt;/order&gt;&#xd;
 &lt;order&gt;&lt;symbol&gt;SUN&lt;/symbol&gt;&lt;buyerID&gt;indika&lt;/buyerID&gt;&lt;price&gt;14.56&lt;/price&gt;&lt;volume&gt;500&lt;/volume&gt;&lt;/order&gt;&#xd;
 &lt;order&gt;&lt;symbol&gt;MSFT&lt;/symbol&gt;&lt;buyerID&gt;doe&lt;/buyerID&gt;&lt;price&gt;23.56&lt;/price&gt;&lt;volume&gt;8030&lt;/volume&gt;&lt;/order&gt;&#xd;
@@ -296,16 +292,16 @@
 &lt;order&gt;&lt;symbol&gt;N&lt;/symbol&gt;&lt;buyerID&gt;n&lt;/buyerID&gt;&lt;price&gt;1.0&lt;/price&gt;&lt;volume&gt;1&lt;/volume&gt;&lt;/order&gt;&#xd;
 &lt;order&gt;&lt;symbol&gt;SUN&lt;/symbol&gt;&lt;buyerID&gt;indika&lt;/buyerID&gt;&lt;price&gt;14.56&lt;/price&gt;&lt;volume&gt;500&lt;/volume&gt;&lt;/order&gt;&#xd;
 &lt;order&gt;&lt;symbol&gt;MSFT&lt;/symbol&gt;&lt;buyerID&gt;doe&lt;/buyerID&gt;&lt;price&gt;23.56&lt;/price&gt;&lt;volume&gt;8030&lt;/volume&gt;&lt;/order&gt;&#xd;
-&lt;/m:buyStocks&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;&#xd;
+&lt;/m:buyStocks&gt;&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">9092</stringProp>
+          <stringProp name="HTTPSampler.port">8290</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.path">/echodd</stringProp>
+          <stringProp name="HTTPSampler.path">/xmlmapper</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -322,7 +318,7 @@
           <stringProp name="HTTPSampler.response_timeout">120000</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - Ballerina - JSON" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - Ballerina - JSON" enabled="true">
           <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
             <collectionProp name="HTTPFileArgs.files">
               <elementProp name="${__P(payload)}" elementType="HTTPFileArg">
@@ -343,9 +339,9 @@
             </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">9092</stringProp>
+          <stringProp name="HTTPSampler.port">8290</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.path">/echodd</stringProp>
+          <stringProp name="HTTPSampler.path">/jsonmapper</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
