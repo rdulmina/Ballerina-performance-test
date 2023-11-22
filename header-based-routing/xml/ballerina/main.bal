@@ -13,7 +13,7 @@ service / on new http:Listener(9090) {
         self.clientOne = check new (httpClientUrl);
         self.clientTwo = check new (httpClientUrl);
     }
-    resource function post hbr(@http:Header string version, xml payload) returns http:Response|http:Error {
+    resource function post hbr(http:Request payload, @http:Header string version) returns http:Response|http:Error {
         if version != ONE {
             return check self.clientOne->/.post(payload);
         }

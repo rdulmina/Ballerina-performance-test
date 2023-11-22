@@ -4,7 +4,7 @@ info:
   description: API Definition of XMLToJson
   version: 1.0.0
 servers:
-- url: http://localhost:8290/XMLToJson
+- url: http://localhost:8290/xmltojson
 paths:
   /:
     post:

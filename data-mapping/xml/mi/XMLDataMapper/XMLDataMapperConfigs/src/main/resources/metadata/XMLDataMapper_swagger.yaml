@@ -4,7 +4,7 @@ info:
   description: API Definition of XMLDataMapper
   version: 1.0.0
 servers:
-- url: http://localhost:8290/XMLDataMapper
+- url: http://localhost:8290/xmlmapper
 paths:
   /:
     post:

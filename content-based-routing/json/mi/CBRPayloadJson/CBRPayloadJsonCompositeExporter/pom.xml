@@ -16,9 +16,11 @@
   <properties>
     <com.example.metadata_._HealthcareAPI_metadata>capp/EnterpriseServiceBus</com.example.metadata_._HealthcareAPI_metadata>
     <com.example.endpoint_._GrandOakEndpoint>capp/EnterpriseServiceBus</com.example.endpoint_._GrandOakEndpoint>
+    <com.example.endpoint_._CatInfoEndPoint2>capp/EnterpriseServiceBus</com.example.endpoint_._CatInfoEndPoint2>
     <com.example.metadata_._CBRPayloadJson_metadata>capp/EnterpriseServiceBus</com.example.metadata_._CBRPayloadJson_metadata>
     <com.example.api_._HealthcareAPI>capp/EnterpriseServiceBus</com.example.api_._HealthcareAPI>
     <com.example.api_._CBRPayloadJson>capp/EnterpriseServiceBus</com.example.api_._CBRPayloadJson>
+    <com.example.endpoint_._CatInfoEndPoint>capp/EnterpriseServiceBus</com.example.endpoint_._CatInfoEndPoint>
     <com.example.endpoint_._PineValleyEndpoint>capp/EnterpriseServiceBus</com.example.endpoint_._PineValleyEndpoint>
     <com.example.metadata_._CBRPayloadJson_swagger>capp/EnterpriseServiceBus</com.example.metadata_._CBRPayloadJson_swagger>
     <com.example.metadata_._HealthcareAPI_swagger>capp/EnterpriseServiceBus</com.example.metadata_._HealthcareAPI_swagger>
@@ -33,7 +35,7 @@
     </dependency>
     <dependency>
       <groupId>com.example.endpoint</groupId>
-      <artifactId>GrandOakEndpoint</artifactId>
+      <artifactId>CatInfoEndPoint2</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
@@ -45,19 +47,13 @@
     </dependency>
     <dependency>
       <groupId>com.example.api</groupId>
-      <artifactId>HealthcareAPI</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.api</groupId>
       <artifactId>CBRPayloadJson</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
     <dependency>
       <groupId>com.example.endpoint</groupId>
-      <artifactId>PineValleyEndpoint</artifactId>
+      <artifactId>CatInfoEndPoint</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>

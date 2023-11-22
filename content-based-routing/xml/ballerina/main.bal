@@ -13,10 +13,11 @@ isolated service / on new http:Listener(9090) {
         self.clientTwo = check new (httpClientUrl);
     }
 
-    isolated resource function post cbr(xml orders) returns http:Response|error {
+    isolated resource function post cbr(http:Request request) returns http:Response|error {
+        xml orders = check request.getXmlPayload();
         if re `SUN`.isFullMatch((((orders/**/<'order>)[1])/<symbol>).data()) {
-            return self.clientOne->/cbr.post(orders);
+            return self.clientOne->/cbr.post(request);
         }
-        return self.clientTwo->/cbr.post(orders);
+        return self.clientTwo->/cbr.post(request);
     }
 }

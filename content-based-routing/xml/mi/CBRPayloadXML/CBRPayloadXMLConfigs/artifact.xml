@@ -11,4 +11,7 @@
     <artifact name="CatInfoEndPoint" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/endpoints/CatInfoEndPoint.xml</file>
     </artifact>
+    <artifact name="CatInfoEndPoint2" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/CatInfoEndPoint2.xml</file>
+    </artifact>
 </artifacts>

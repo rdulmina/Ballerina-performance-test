@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<api context="/CBRPayloadJSON" name="CBRPayloadJSON" xmlns="http://ws.apache.org/ns/synapse">
+<api context="/cbr" name="CBRPayloadJSON" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST">
         <inSequence>
             <!-- Check if the 'symbol' element exists in the JSON payload -->
             <!-- Create a JSON error response -->
             <!-- Forward the request to the 'RealService' endpoint -->
-            <filter regex=".*" source="json-eval($.payload.symbol[1])">
+            <filter regex="SUN" source="json-eval($.buyStocks.order[1].symbol)">
                 <then>
                     <call>
                         <endpoint key="CatInfoEndPoint"/>
                     </call>
                 </then>
                 <else>
-                    <payloadFactory media-type="json">
-                        <format>{"error": "Cannot find symbol"}</format>
-                        <args/>
-                    </payloadFactory>
+                    <call>
+                        <endpoint key="CatInfoEndPoint2"/>
+                    </call>
                 </else>
             </filter>
             <respond/>
@@ -24,6 +23,3 @@
         <faultSequence/>
     </resource>
 </api>
-
-//TODO: two endpoints
-//TODO: natural comparison

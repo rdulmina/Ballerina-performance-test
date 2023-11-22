@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<api context="/JSONToXML" name="JSONToXML" xmlns="http://ws.apache.org/ns/synapse">
+<api context="/jsontoxml" name="JSONToXML" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST">
         <inSequence>
             <property name="messageType" scope="axis2" type="STRING" value="application/xml"/>

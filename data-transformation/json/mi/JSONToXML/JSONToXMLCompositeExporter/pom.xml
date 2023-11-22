@@ -14,24 +14,18 @@
   <name>JSONToXMLCompositeExporter</name>
   <description>JSONToXMLCompositeExporter</description>
   <properties>
+    <com.example.api_._JSONToXML>capp/EnterpriseServiceBus</com.example.api_._JSONToXML>
     <com.example.proxy-service_._PassThrough2>capp/EnterpriseServiceBus</com.example.proxy-service_._PassThrough2>
-    <com.example.api_._PassThrough>capp/EnterpriseServiceBus</com.example.api_._PassThrough>
     <com.example.metadata_._PassThrough2_proxy_metadata>capp/EnterpriseServiceBus</com.example.metadata_._PassThrough2_proxy_metadata>
     <com.example.endpoint_._CatInfo>capp/EnterpriseServiceBus</com.example.endpoint_._CatInfo>
-    <com.example.metadata_._PassThrough_swagger>capp/EnterpriseServiceBus</com.example.metadata_._PassThrough_swagger>
-    <com.example.metadata_._PassThrough_metadata>capp/EnterpriseServiceBus</com.example.metadata_._PassThrough_metadata>
+    <com.example.metadata_._JSONToXML_metadata>capp/EnterpriseServiceBus</com.example.metadata_._JSONToXML_metadata>
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,synapse/metadata=yaml,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
+    <com.example.metadata_._JSONToXML_swagger>capp/EnterpriseServiceBus</com.example.metadata_._JSONToXML_swagger>
   </properties>
   <dependencies>
     <dependency>
       <groupId>com.example.proxy-service</groupId>
       <artifactId>PassThrough2</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.api</groupId>
-      <artifactId>PassThrough</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
@@ -49,15 +43,21 @@
     </dependency>
     <dependency>
       <groupId>com.example.metadata</groupId>
-      <artifactId>PassThrough_swagger</artifactId>
+      <artifactId>JSONToXML_metadata</artifactId>
       <version>1.0.0</version>
       <type>yaml</type>
     </dependency>
     <dependency>
       <groupId>com.example.metadata</groupId>
-      <artifactId>PassThrough_metadata</artifactId>
+      <artifactId>JSONToXML_swagger</artifactId>
       <version>1.0.0</version>
       <type>yaml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.api</groupId>
+      <artifactId>JSONToXML</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
     </dependency>
   </dependencies>
   <repositories>

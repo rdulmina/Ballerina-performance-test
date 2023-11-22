@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<api context="/CBRPayloadXML" name="CBRPayloadXML" xmlns="http://ws.apache.org/ns/synapse">
+<api context="/cbr" name="CBRPayloadXML" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST">
         <inSequence>
-            <filter regex=".*" source="//order[1]/symbol" xmlns:m="http://services.samples/xsd">
+            <filter regex="SUN" source="//order[1]/symbol" xmlns:m="http://services.samples/xsd">
                 <then>
                     <log>
                         <property name="name" value="dulimina"/>
@@ -12,12 +12,9 @@
                     </call>
                 </then>
                 <else>
-                    <payloadFactory description="Create response payload for unsupported operation" media-type="xml">
-                        <format>
-                            <Message xmlns="">Cannot find symbol</Message>
-                        </format>
-                        <args/>
-                    </payloadFactory>
+                    <call>
+                        <endpoint key="CatInfoEndPoint2"/>
+                    </call>
                 </else>
             </filter>
             <respond/>

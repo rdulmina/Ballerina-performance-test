@@ -4,7 +4,7 @@ name : "CBRPayloadXML"
 displayName : "CBRPayloadXML"
 description: "Sample API"
 version: "1.0.0"
-serviceUrl: "https://{MI_HOST}:{MI_PORT}/CBRPayloadXML"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/cbr"
 definitionType: "OAS3"
 securityType: "BASIC"
 mutualSSLEnabled: false
