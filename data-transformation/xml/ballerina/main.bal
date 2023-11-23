@@ -1,5 +1,4 @@
 import ballerina/http;
-import ballerina/xmldata;
 
 public type Order record {|
     string symbol;
@@ -19,8 +18,24 @@ public type Order record {|
 // {"buyStocks":{"order":[{"symbol":"N","buyerID":"n","price":1.0,"volume":1},{"symbol":"SUN","buyerID":"indika","price":14.56,"volume":500}]}}
 
 isolated service / on new http:Listener(9090) {
-    isolated resource function post xmltojson(xml payload) returns map<map<Order[]>>|xmldata:Error {
-        return xmldata:fromXml(payload);
+    isolated resource function post xmltojson(http:Request request) returns json|error {
+        xml payload = check request.getXmlPayload();
+        json[] arr = [];
+        from xml 'order in payload/<'order>
+        do {
+            arr.push({
+                "symbol": ('order/<symbol>).data(),
+                "buyerID": ('order/<buyerID>).data(),
+                "price": ('order/<price>).data(),
+                "volume": ('order/<volume>).data()
+            });
+
+        };
+        return {
+            "buyStocks": {
+                "order": [...arr]
+            }
+        };
     }
 }
 

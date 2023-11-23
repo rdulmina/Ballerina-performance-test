@@ -67,15 +67,16 @@ isolated service / on new http:Listener(9090) {
     function init() returns error? {
         self.httpClient = check new (httpClientUrl);
     }
-    isolated resource function post jsonmapper(StockDetails stockDetails) returns record {record {TargetType[] 'order;} buyStocks;}|error {
-        SourceType[] orders = stockDetails.buyStocks.'order;
-        return {buyStocks: {'order: mapToJson(orders)}};
+    isolated resource function post jsonmapper(http:Request request) returns json|error {
+        json stockDetails = check request.getJsonPayload();
+        json[] orders = check stockDetails.buyStocks.'order.ensureType();
+        return {buyStocks: {'order: check mapToJson(orders)}};
     }
 }
 
-isolated function mapToJson(SourceType[] sourceType) returns TargetType[] => from var sourceTypeItem in sourceType
+isolated function mapToJson(json[] sourceType) returns json|error => from var sourceTypeItem in sourceType
     select {
-        symbol: sourceTypeItem.symbol,
-        buyerID: sourceTypeItem.buyerID,
-        totalPrice: sourceTypeItem.price * sourceTypeItem.volume
+        symbol: check sourceTypeItem.symbol,
+        buyerID: check sourceTypeItem.buyerID,
+        totalPrice: <float>check sourceTypeItem.price * <int>check sourceTypeItem.volume
     };
