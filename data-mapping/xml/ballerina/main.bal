@@ -22,7 +22,8 @@ isolated service / on new http:Listener(9090) {
     function init() returns error? {
         self.httpClient = check new (httpClientUrl);
     }
-    isolated resource function post xmlmapper(xml payload) returns xml|error {
+    isolated resource function post xmlmapper(http:Request request) returns xml|error {
+        xml payload = check request.getXmlPayload();
         xml<xml:Element> target = from xml:Element 'order in payload/<'order>
             select xml `<order>
             <symbol>${('order/<symbol>).data()}</symbol>
